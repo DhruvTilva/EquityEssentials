@@ -123,24 +123,96 @@
                 </ul>
                 </div>
             </div>
-            <div class="col-md-10">
-                <div class="content-body-wrapper mt-4">
-                    <h4 class="mt-4 mb-4">About Us</h4>
-                    <p>Welcome to our website!</p>
-                    <h5>Meet the Team</h5>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="card">
-                          <div class="card-body">
-                            <h5 class="card-title">Dhruv</h5>
-                            <p class="card-text">Equity Essentials Dev.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+           
+
+            <div id="sip-calculator" >
+              <div class="content-body-wrapper">
+                <div class="row">
+                  <div class="col-md-12">
+                    <header>
+                      <h2 class="headers">SIP(Systematic Investment Plan) calculator</h2>
+                    </header>
+                    <hr />
+                  </div>
                 </div>
+                <div class="row">
+                  <!-- <div id="sip-result-wrapper" class="col-md-4"> -->
+                    <div>
+                      <label style="float:left;margin-right:10px;">Monthly Investment Amount</label>
+                      <input class="form-control" type="number" id="investment" autocomplete="off" placeholder="3000"
+                        onchange="sipCalculator()" />
+                      <span id='error1'></span>
+                    </div>
+                    <div style="margin-top:15px">
+                      <label style="float:left;margin-right:10px;">Investment Period in years</label>
+                      <input class="form-control" type="number" id="years" autocomplete="off" placeholder="3" onchange="sipCalculator()" />
+                      <span id='error2'></span>
+                    </div>
+                    <div style="margin-top:15px">
+                      <label style="float:left;margin-right:10px;">Expected Annual Returns(%)</label>
+                      <input class="form-control" type="number" id="rateOfInterest" autocomplete="off" placeholder="10"
+                        onchange="sipCalculator()"  />
+                      <span id='error2'></span>
+                    </div>
+                    <div style="margin-top:15px">
+                      <label style="float:left;margin-right:10px;">Step up - Yearly Increase in Monthly Investment(%)</label>
+                      <input class="form-control" type="number" id="rateIncrease" autocomplete="off" placeholder="0"
+                        onchange="sipCalculator()" />
+                      <span id='error2'></span>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                  </div>
+                  <div class="col-md-4 st banner-ad-desktop">
+                    <ul>
+                      <li> <a target="_blank" tabindex="-1"
+                          href="https://www.amazon.in/gp/search?ie=UTF8&tag=stockaverag0c-21&linkCode=ur2&linkId=d7b58af7beaaa50e0bf135c06cda27dd&camp=3638&creative=24630&index=books&keywords=Best Stock Market Books, Get Rich">Top
+                          Picks: Essential Stock Market Books for Every Investor</a></li>
+                      <li> <a target="_blank" tabindex="-1"
+                          href="https://www.amazon.in/gp/search?ie=UTF8&tag=stockaverag0c-21&linkCode=ur2&linkId=93a73bc45fd282f0b311239075611abf&camp=3638&creative=24630&index=books&keywords=Self-Confidence, Influence People &amp; Wealth English books for Indian ">Mastering
+                          Money Management: Must-Read Books for Financial Success</a></li>
+                      <li> <a target="_blank" tabindex="-1"
+                          href="https://www.amazon.in/gp/search?ie=UTF8&tag=stockaverag0c-21&linkCode=ur2&linkId=c1a731d187981d90a78954327ff9f164&camp=3638&creative=24630&index=books&keywords=startup books">Launching
+                          Your Startup: Essential Reads for Success</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="r-sip">
+                      <div class="results">Expected Amount : <span id="tm">0</span> </div>
+                      <hr />
+                      <div class="results"> Amount Invested : <span id="im">0</span></div>
+                      <hr>
+                      <div class="results">Total Gain : <span id="gm">0</span> </div>
+                    </div>
+    
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 st">
+                    <button class="btn btn-success" onclick="sipCalculator()"> Calculate</button>
+                    <button class="btn btn-warning" onclick="clearFields1()">Clear Fields</button>
+                  </div>
+                  <div class="col-md-12 d-block d-md-none display-mobile-ad">
+                    <ul>
+                      <li> <a target="_blank" tabindex="-1"
+                          href="https://www.amazon.in/gp/search?ie=UTF8&tag=stockaverag0c-21&linkCode=ur2&linkId=d7b58af7beaaa50e0bf135c06cda27dd&camp=3638&creative=24630&index=books&keywords=Best Stock Market Books, Get Rich">Top
+                          Picks: Essential Stock Market Books for Every Investor</a></li>
+                      <li> <a target="_blank" tabindex="-1"
+                          href="https://www.amazon.in/gp/search?ie=UTF8&tag=stockaverag0c-21&linkCode=ur2&linkId=93a73bc45fd282f0b311239075611abf&camp=3638&creative=24630&index=books&keywords=Self-Confidence, Influence People &amp; Wealth English books for Indian ">Mastering
+                          Money Management: Must-Read Books for Financial Success</a></li>
+                      <li> <a target="_blank" tabindex="-1"
+                          href="https://www.amazon.in/gp/search?ie=UTF8&tag=stockaverag0c-21&linkCode=ur2&linkId=c1a731d187981d90a78954327ff9f164&camp=3638&creative=24630&index=books&keywords=startup books">Launching
+                          Your Startup: Essential Reads for Success</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
+
+
+
     </div>
     <footer class="mb-2">
       <div class="container">

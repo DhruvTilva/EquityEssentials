@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monthly Stock Trend</title>
+</head>
+<body>
+  <h1>Monthly Stock Trend</h1>
+  
+  <label for="stock-symbol">Stock Symbol:</label>
+  <input type="text" id="stock-symbol" placeholder="Enter Stock Symbol">
+  
+  <button id="get-trend-btn">Get Monthly Trend</button>
+  
+  <div id="monthly-trend"></div>
+
+  <script>
+    async function fetchMonthlyStockData(symbol) {
+      const apiKey = 'rAUBa21E6xWMNU1JgGhUHX5fTPO8Fh7E';
+      const apiUrl = `https://financialmodelingprep.com/api/v3/historical-price-full/${symbol}?apikey=${apiKey}`;
+
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        return data.historical;
+        console.log(data); // Access 'historical' array from API response
+      } catch (error) {
+        console.error('Error fetching monthly stock data:', error);
+        return null;
+      }
+    }
+
+    function calculateMonthlyTrend(monthlyData) {
+      // Check if there is enough data
+      if (monthlyData.length < 2) {
+        return 'Insufficient data for trend analysis';
+      }
+    
+      // Extract monthly closing prices
+      const closingPrices = monthlyData.map(entry => parseFloat(entry.close));
+    
+      // Calculate the difference between the first and last closing prices
+      const priceDifference = closingPrices[closingPrices.length - 1] - closingPrices[0];
+    
+      // Determine the trend based on the price difference
+      if (priceDifference > 0) {
+        return 'Upward trend';
+      } else if (priceDifference < 0) {
+        return 'Downward trend';
+      } else {
+        return 'Sideways trend';
+      }
+    }
+
+    async function getMonthlyStockTrend() {
+      const symbol = document.getElementById('stock-symbol').value.toUpperCase();
+      
+      const monthlyData = await fetchMonthlyStockData(symbol);
+      if (!monthlyData) {
+        document.getElementById('monthly-trend').innerText = 'Error fetching monthly stock data. Please try again.';
+        return;
+      }
+      
+      const trend = calculateMonthlyTrend(monthlyData);
+      
+      document.getElementById('monthly-trend').innerText = `Monthly Trend: ${trend}`;
+    }
+
+    document.getElementById('get-trend-btn').addEventListener('click', getMonthlyStockTrend);
+  </script>
+</body>
+</html>
