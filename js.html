@@ -1,0 +1,37 @@
+<body>
+
+  <div class="container">
+    <select id="left" multiple>
+      <option>A</option>
+      <option>B</option>
+      <option>C</option>
+      <option>D</option>
+    </select>
+    <div class="buttons">
+      <button onclick="move('left', 'right',true)">>></button>
+      <button onclick="move('left', 'right')">></button>
+      <button onclick="move('right', 'left')"><</button>
+      <button onclick="move('right', 'left',true)"><<</button>
+    </div>
+
+    <select id="right" multiple>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+    </select>
+  </div>
+
+  <script>
+    function move(from, to, All = false) {
+        fromSelect = document.getElementById(from);
+            toSelect = document.getElementById(to);
+        optionsToMove = All ? fromSelect.options : fromSelect.selectedOptions;
+        Array.from(optionsToMove).forEach(option => {
+    toSelect.appendChild(option);
+        });
+}
+
+
+  </script>
+</body>
